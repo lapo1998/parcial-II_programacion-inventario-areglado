@@ -1,8 +1,5 @@
-# inventario.py
-
-# Se importan los módulos necesarios para la persistencia de datos y la gestión de archivos.
-import pickle  # Módulo para serializar y deserializar objetos de Python.
-import os      # Módulo para interactuar con el sistema operativo, como verificar la existencia de archivos.
+import pickle  
+import os      
 # Se importa la clase Producto desde el archivo producto.py para poder trabajar con sus objetos.
 from producto import Producto
 
@@ -106,7 +103,6 @@ class Inventario:
             print("El inventario está vacío.")
         else:
             print("\n--- Inventario Completo ---")
-            # Itera sobre los valores del diccionario y los muestra.
             for producto in self.productos.values():
                 print(producto)
             print("---------------------------")
