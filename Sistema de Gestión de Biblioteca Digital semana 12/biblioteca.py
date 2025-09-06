@@ -1,4 +1,3 @@
-# Archivo: biblioteca.py
 
 from libro import Libro
 from usuario import Usuario
@@ -110,4 +109,5 @@ class Biblioteca:
         for isbn in usuario.libros_prestados:
             libro = self.libros_disponibles.get(isbn)
             if libro:
+
                 print(f"   - {libro.datos[0]} de {libro.datos[1]} (ISBN: {isbn})")
