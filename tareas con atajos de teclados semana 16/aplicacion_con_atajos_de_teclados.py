@@ -11,19 +11,19 @@ class TaskManagerApp:
         master.title("Gestión de Tareas con Atajos - Versión Estable Final")
         master.geometry("580x500")
 
-        # Almacén de datos: lista de tuplas (tarea, completada_booleana)
+        # Almacén de datos lista de tuplas tarea, completada_booleana
         self.tasks = []
         
         # Marco principal
         main_frame = tk.Frame(master, padx=10, pady=10)
         main_frame.pack(fill=tk.BOTH, expand=True)
 
-        # Campo de Entrada (Entry)
+        # Campo de Entrada Entry
         self.task_entry = tk.Entry(main_frame, width=40, font=('Arial', 12))
         self.task_entry.pack(pady=10, fill=tk.X)
         self.task_entry.focus_set()
 
-        # Botón Añadir (Manejo de Eventos de Clic)
+        # Botón Añadir manejo de eventos de Clic
         add_button = tk.Button(main_frame, text="Añadir Tarea (Enter)", command=self.add_task)
         add_button.pack(pady=5, fill=tk.X)
 
@@ -44,7 +44,7 @@ class TaskManagerApp:
         button_frame = tk.Frame(main_frame)
         button_frame.pack(fill=tk.X, pady=5)
 
-        # Botón 'Fin' marca como completado el evento
+        # Botón Fin marca como completado el evento
         complete_button = tk.Button(button_frame, text="Marcar Completada ( Fin )", command=self.mark_completed)
         complete_button.pack(side=tk.LEFT, expand=True, padx=5)
 
@@ -52,7 +52,7 @@ class TaskManagerApp:
         delete_button = tk.Button(button_frame, text="Eliminar (Supr)", command=self.delete_task)
         delete_button.pack(side=tk.LEFT, expand=True, padx=5)
 
-        # 3. Atajos de Teclado (Bindings)
+        # 3. Atajos de Teclado usando Bindings
         
         # Atajo: Añadir con "Enter"
         master.bind('<Return>', lambda event: self.add_task())
@@ -61,7 +61,7 @@ class TaskManagerApp:
         # Atajo: Eliminar tarea con "Delete" / "Supr"
         master.bind('<Delete>', lambda event: self.delete_task())
         
-        # Atajo: Cerrar la aplicación con "Escape"
+        #  se agrega atajo cerrar la aplicación con la tecla Escape
         master.bind('<Escape>', lambda event: self.master.quit())
 
 
@@ -73,7 +73,7 @@ class TaskManagerApp:
             self.task_listbox.delete(item)
             
         for task_text, is_completed in self.tasks:
-            # Feedback Visual: Asignar el estilo (tag)
+            #  signar el estilo (tag)
             tag = 'completed' if is_completed else 'pending'
             
             # Insertar en Treeview y aplicar el tag
@@ -108,7 +108,7 @@ class TaskManagerApp:
         selected_index = self.get_selected_index()
         
         if selected_index is not None:
-            # Invierte el estado de la tarea (Completa -> Pendiente, o viceversa)
+            # Invierte el estado de la tarea Completa -> Pendiente, o viceversa
             task_text, is_completed = self.tasks[selected_index]
             self.tasks[selected_index] = (task_text, not is_completed) 
             
@@ -131,4 +131,5 @@ class TaskManagerApp:
 if __name__ == '__main__':
     root = tk.Tk()
     app = TaskManagerApp(root)
+
     root.mainloop()
