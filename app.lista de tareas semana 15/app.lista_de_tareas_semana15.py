@@ -28,7 +28,7 @@ class ToDoApp:
         self.entry_task.grid(row=0, column=0, padx=5)
         self.entry_task.focus()
 
-        # Botón para "Añadir Tarea"
+        # Botón para Añadir Tarea
         self.add_button = tk.Button(
             self.frame_input,
             text="Añadir Tarea",
@@ -39,7 +39,7 @@ class ToDoApp:
         )
         self.add_button.grid(row=0, column=1, padx=5)
 
-        # Lista de Tareas (Listbox) con Scrollbar
+        # Lista de Tareas Listbox con Scrollbar
         self.task_list_frame = tk.Frame(master)
         self.task_list_frame.pack(padx=10, pady=5, fill=tk.BOTH, expand=True)
 
@@ -47,7 +47,7 @@ class ToDoApp:
         self.scrollbar = tk.Scrollbar(self.task_list_frame)
         self.scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 
-        # Componente Listbox: Muestra las tareas actuales
+        # Muestra las tareas actuales
         self.task_listbox = tk.Listbox( 
             self.task_list_frame,
             height=15,
@@ -63,7 +63,7 @@ class ToDoApp:
         self.frame_actions = tk.Frame(master)
         self.frame_actions.pack(pady=10)
 
-        # Botón para "Marcar como Completada"
+        # Botón para Marcar como Completada
         self.complete_button = tk.Button(
             self.frame_actions,
             text="Completada ✔️",
@@ -74,18 +74,18 @@ class ToDoApp:
         )
         self.complete_button.grid(row=0, column=0, padx=10)
         
-        # Botón para "Editar Tarea" con color AZUL
+        # Botón para Editar Tarea con color AZUL
         self.edit_button = tk.Button(
             self.frame_actions,
             text="Editar ✏️",
             command=self.edit_task,
-            bg='#007BFF', # Color AZUL
+            bg='#007BFF', # aca seleccione el color (azul
             fg='white',  # Texto blanco para el botón azul
             font=('Arial', 10, 'bold')
         )
         self.edit_button.grid(row=0, column=1, padx=10)
 
-        # Botón para "Eliminar Tarea"
+        # Botón para Eliminar Tarea
         self.delete_button = tk.Button(
             self.frame_actions,
             text="Eliminar 🗑️",
@@ -138,7 +138,6 @@ class ToDoApp:
         # Método para eliminar la tarea seleccionada
         try:
             selected_index = self.task_listbox.curselection()[0]
-            # Lógica: Remueve la tarea del Listbox (se elimina de la lista)
             self.task_listbox.delete(selected_index) 
         except IndexError:
             messagebox.showwarning("Advertencia", "¡Debes seleccionar una tarea para eliminarla!")
@@ -194,4 +193,5 @@ if __name__ == "__main__":
     root = tk.Tk() 
     app = ToDoApp(root) 
     # Inicia el bucle principal de Tkinter
+
     root.mainloop()
