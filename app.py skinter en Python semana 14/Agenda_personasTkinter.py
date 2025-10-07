@@ -1,20 +1,20 @@
 # Agenda personas en tikinter
 import tkinter as tk
-# Importa los widgets con estilo moderno (Treeview, Button, Label, Frame).
+# Importa los widgets con estilo moderno Treeview, Button, Label, Frame
 from tkinter import ttk, messagebox
 # Importa el widget de calendario para la selección de fechas.
 from tkcalendar import Calendar
 
-# Define la función que se ejecuta al presionar "Agregar Evento".
+# Define la función que se ejecuta al presionar "Agregar Evento
 def agregar_evento():
-    # Obtiene el texto de los campos de entrada de la interfaz.
+    # Obtiene el texto de los campos de entrada de la interfaz
     fecha = entrada_fecha.get()
     hora = entrada_hora.get()
     descripcion = entrada_descripcion.get()
 
     # Verifica que los campos no estén vacíos antes de agregar el evento.
     if fecha and hora and descripcion:
-        # Inserta los valores como una nueva fila en el Treeview (la tabla).
+        # Inserta los valores como una nueva fila en el Treeview la tabla
         tabla_eventos.insert('', tk.END, values=(fecha, hora, descripcion))
         
         # Limpia los campos de entrada para el próximo evento.
@@ -36,7 +36,7 @@ def eliminar_evento():
         confirmacion = messagebox.askyesno("Confirmar Eliminación", 
                                            "¿Está seguro de que desea eliminar este evento?")
         
-        # Si el usuario hace clic en "Sí", procede con la eliminación.
+        # Si el usuario hace clic en Sí procede con la eliminación.
         if confirmacion:
             tabla_eventos.delete(seleccionado)
     else:
@@ -86,7 +86,6 @@ marco_entrada.pack(pady=10, fill=tk.X)
 
 # Crea la etiqueta para el campo de fecha.
 ttk.Label(marco_entrada, text="Fecha:").grid(row=0, column=0, padx=5, pady=5, sticky="e")
-# Crea el campo de entrada para la fecha.
 entrada_fecha = ttk.Entry(marco_entrada)
 entrada_fecha.grid(row=0, column=1, padx=5, pady=5, sticky="w")
 # Crea el botón para abrir el calendario.
@@ -104,11 +103,11 @@ ttk.Label(marco_entrada, text="Descripción:").grid(row=2, column=0, padx=5, pad
 entrada_descripcion = ttk.Entry(marco_entrada)
 entrada_descripcion.grid(row=2, column=1, padx=5, pady=5, sticky="w")
 
-# Crea el botón para agregar el evento, vinculado a la función `agregar_evento`.
+# Crea el botón para agregar el evento, vinculado a la función agregar_evento
 boton_agregar = ttk.Button(marco_entrada, text="Agregar Evento", command=agregar_evento)
 boton_agregar.grid(row=3, column=1, pady=10, sticky="w")
 
-# Crea el widget de tabla (TreeView) para mostrar los eventos.
+# Crea el widget de tabla TreeView para mostrar los eventos.
 tabla_eventos = ttk.Treeview(marco_principal, columns=("Fecha", "Hora", "Descripción"), show="headings")
 # Define los encabezados de las columnas.
 tabla_eventos.heading("Fecha", text="Fecha")
@@ -132,4 +131,5 @@ boton_eliminar.pack(side=tk.LEFT, padx=5)
 # Crea el botón de "Salir", vinculado a la función `salir_aplicacion`.
 boton_salir = ttk.Button(marco_botones, text="Salir", command=salir_aplicacion)
 boton_salir.pack(side=tk.LEFT, padx=5)
+
 ventana.mainloop()
